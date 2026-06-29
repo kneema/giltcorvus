@@ -42,7 +42,7 @@ header {
 }
 
 .logo-img {
-    height: 20px; /* Set this to match your desired navbar height */
+    height: 25px; /* Set this to match your desired navbar height */
     width: auto;  /* Maintains the original aspect ratio */
     object-fit: contain;
     mix-blend-mode: multiply; 
