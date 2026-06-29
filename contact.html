@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Gilt Corvus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b1329; 
+            overflow: hidden;
+        }
+
+        /* Background Static Image Container */
+        #bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Dark Tint Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 19, 41, 0.6);
+            z-index: -1;
+        }
+
+        /* Frosted Glass Content Panel */
+        .contact-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            width: 90%;
+            max-width: 540px;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #f8fafc;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #cbd5e1;
+            text-align: center;
+            margin-bottom: 35px;
+            letter-spacing: 0.02em;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .info-detail {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #f1f5f9;
+        }
+
+        .info-detail a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .info-detail a:hover {
+            border-bottom-color: #ffffff;
+        }
+
+        /* Back Navigation Button */
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bg-container"></div>
+    <div class="overlay"></div>
+
+    <!-- Contact Info Card -->
+    <main class="contact-card">
+        <h1 class="title">Investor Relations</h1>
+        <p class="subtitle">For inquiries regarding capital deployment, portfolio operations, and strategic partnerships.</p>
+        
+        <div class="info-section">
+            <div class="info-label">General & Capital Inquiries</div>
+            <div class="info-detail"><a href="mailto:nima@giltcorvus.com">invest@nexus-holdings.com</a></div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-label">Principal Locations</div>
+            <div class="info-detail">Denver, Colorado<br>Adelaide, South Australia<br> Perth, Western Australia</div>
+        </div>
+
+        <a href="index.html" class="back-btn">Home</a>
+    </main>
+
+</body>
+</html>
