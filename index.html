@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holding Company | Investment & Management</title>
+    <title>Nexus Holdings | Capital & Strategy</title>
     <style>
         * {
             margin: 0;
@@ -11,20 +11,26 @@
             box-sizing: border-box;
         }
 
+        /* 
+           FIX: Set a default dark navy color. If images fail or take 
+           time to download, the site stays dark and readable.
+        */
         body, html {
             height: 100%;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b1329; 
             overflow: hidden;
         }
 
-        /* Fullscreen background slideshow */
-        #bg-slideshow {
+        /* Background Slideshow Container */
+        #slideshow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
+            background-color: #0b1329; /* Fallback for slow connections */
         }
 
         .slide {
@@ -36,109 +42,121 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1.8s ease-in-out;
         }
 
         .slide.active {
             opacity: 1;
         }
 
-        /* Frosted Glass (Glassmorphism) Content Box */
-        .container {
+        /* Dark Tint Overlay for Text Contrast */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 19, 41, 0.5); /* Slightly darker shade tint */
+            z-index: -1;
+        }
+
+        /* Frosted Glass Content Panel */
+        .main-card {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            background: rgba(255, 255, 255, 0.08); /* Transparent base */
-            backdrop-filter: blur(20px); /* The frosty blur effect */
+            background: rgba(255, 255, 255, 0.05); /* Soft transparent white */
+            backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 60px 80px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 60px 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
             color: #ffffff;
             width: 90%;
-            max-width: 600px;
+            max-width: 580px;
         }
 
-        .logo {
-            font-size: 2rem;
+        .company-name {
+            font-size: 2.2rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: #f8fafc;
         }
 
-        .divider {
-            width: 60px;
-            height: 3px;
-            background-color: #ffffff;
-            margin: 0 auto 30px auto;
-            border-radius: 2px;
+        .accent-line {
+            width: 50px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.6);
+            margin: 0 auto 32px auto;
         }
 
-        .tagline {
-            font-size: 1.1rem;
+        .description {
+            font-size: 1.05rem;
             font-weight: 300;
-            letter-spacing: 0.05em;
-            line-height: 1.6;
-            margin-bottom: 40px;
-            color: #e2e8f0;
+            letter-spacing: 0.03em;
+            line-height: 1.7;
+            margin-bottom: 44px;
+            color: #f1f5f9;
         }
 
-        .contact-btn {
+        .cta-button {
             display: inline-block;
             text-decoration: none;
-            color: #ffffff;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 14px 32px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #0b1329; /* Matches the background theme */
+            background-color: #ffffff;
+            padding: 16px 40px;
             border-radius: 50px;
             font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .contact-btn:hover {
-            background-color: rgba(255, 255, 255, 0.25);
+        .cta-button:hover {
+            background-color: #f8fafc;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Slideshow -->
-    <div id="bg-slideshow">
-        <!-- Add your beautiful professional images here -->
+    <!-- Professional Backgrounds -->
+    <div id="slideshow-container">
         <div class="slide active" style="background-image: url('https://unsplash.com');"></div>
         <div class="slide" style="background-image: url('https://unsplash.com');"></div>
         <div class="slide" style="background-image: url('https://unsplash.com');"></div>
     </div>
+    
+    <div class="overlay"></div>
 
-    <!-- Centered Glassy Content -->
-    <div class="container">
-        <div class="logo">Nexus Holdings</div>
-        <div class="divider"></div>
-        <p class="tagline">Strategic investments and global management driving sustainable growth and innovation across our portfolio.</p>
-        <a href="mailto:contact@nexus-holdings.com" class="contact-btn">Get in Touch</a>
-    </div>
+    <!-- Presentation Card -->
+    <main class="main-card">
+        <h1 class="company-name">Nexus Holdings</h1>
+        <div class="accent-line"></div>
+        <p class="description">Deploying strategic capital and operational expertise to cultivate industry-leading enterprises globally.</p>
+        <a href="mailto:invest@nexus-holdings.com" class="cta-button">Inquire</a>
+    </main>
 
-    <!-- Slideshow JavaScript -->
+    <!-- Logic for Background Fade Effect -->
     <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+        const images = document.querySelectorAll('.slide');
+        let index = 0;
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+        function rotateImages() {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
         }
 
-        // Change background every 6 seconds
-        setInterval(nextSlide, 6000); 
+        setInterval(rotateImages, 7000); // Transitions every 7 seconds
     </script>
 </body>
 </html>
